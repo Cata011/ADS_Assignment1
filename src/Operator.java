@@ -1,11 +1,10 @@
 public class Operator extends Token {
 
     private Operation operation;
-    private CalculatorVisitor visitor;
 
     @Override
-    public void accept() {
-
+    public void accept(CalculatorVisitor visitor) {
+        visitor.performOperation();
     }
 
     public Operation getOperation()

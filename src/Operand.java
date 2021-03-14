@@ -1,10 +1,10 @@
 public class Operand extends Token {
 
     private int value;
-    private CalculatorVisitor visitor;
 
     @Override
-    public void accept() {
+    public void accept(CalculatorVisitor visitor) {
+        visitor.pushOperand();
     }
 
     public int getValue()
