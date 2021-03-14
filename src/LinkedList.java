@@ -19,6 +19,7 @@ public class LinkedList<T> implements List<T> {
     public void addToFront(T data) {
         Node<T> newNode = new Node<>(data);
         head.setNext(newNode);
+        head = newNode;
         size++;
     }
 
