@@ -4,7 +4,7 @@ public class Operand extends Token {
 
     @Override
     public void accept(CalculatorVisitor visitor) {
-        visitor.pushOperand();
+        visitor.visit(this);
     }
 
     public int getValue()
