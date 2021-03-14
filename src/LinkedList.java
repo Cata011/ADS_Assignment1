@@ -17,11 +17,18 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void addToFront(T data) {
-        head.setData(data);
+        Node<T> newNode = new Node<>(data);
+        head.setNext(newNode);
+        size++;
     }
 
     @Override
-    public T removeFirst() {
-        return head.getNext().getData();
+    public T removeFirst() throws Exception {
+        if(isEmpty()) throw new Exception("List is empty");
+
+        T firstNodeData = head.getData();
+        head = head.getNext();
+        size--;
+        return firstNodeData;
     }
 }

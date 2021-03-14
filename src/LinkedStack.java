@@ -2,6 +2,11 @@ public class LinkedStack<T> implements Stack<T> {
 
     public LinkedList<T> list;
 
+    public LinkedStack()
+    {
+        this.list = new LinkedList<>();
+    }
+
     @Override
     public boolean isEmpty() {
         return list.isEmpty();
@@ -13,7 +18,13 @@ public class LinkedStack<T> implements Stack<T> {
     }
 
     @Override
-    public T pop() {
-        return list.removeFirst();
+    public T pop() throws Exception {
+        try {
+            return list.removeFirst();
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Stack is empty");
+        }
     }
 }
