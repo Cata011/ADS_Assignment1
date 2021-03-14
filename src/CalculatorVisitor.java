@@ -5,7 +5,12 @@ public class CalculatorVisitor implements Calculator, Visitor
 
   @Override public int getResult() throws Exception
   {
-    throw new Exception("MalformedExpressionException");
+    try{
+      return (int)tokenStack.pop();
+    }
+    catch (Exception e){
+      throw new Exception("MalformedExpressionException");
+    }
   };
 
   @Override public void visit(Operand operand)

@@ -4,7 +4,8 @@ public class Client {
 
   private CalculatorVisitor calculatorVisitor;
 
-  public int evaluateExpression(ArrayList<Token> tokenList){
-    return 0;
+  public int evaluateExpression(ArrayList<Token> tokenList) throws Exception
+  {
+   return calculatorVisitor.getResult();
   };
 }
