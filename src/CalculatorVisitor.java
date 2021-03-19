@@ -1,33 +1,68 @@
+import CustomExceptions.EmptyStackException;
+import CustomExceptions.MalformedExpressionException;
+
 public class CalculatorVisitor implements Calculator, Visitor
 {
 
-  private LinkedStack tokenStack;
+  private LinkedStack<Token> tokenStack;
 
-  @Override public int getResult() throws Exception
+  @Override public int getResult() throws MalformedExpressionException
   {
     try{
-      return (int)tokenStack.pop();
+      return ((Operand)tokenStack.pop()).getValue();
     }
     catch (Exception e){
-      throw new Exception("MalformedExpressionException");
+      throw new MalformedExpressionException("The stack is empty.");
     }
-  };
+  }
 
   @Override public void visit(Operand operand)
   {
-
+    pushOperand(operand);
   }
 
   @Override public void visit(Operator operator)
   {
-
+    try {
+      performOperation(operator);
+    }
+    catch (Exception e) {
+      System.out.println("Exception for operator" + operator);
+    }
   }
 
   private void pushOperand(Operand operand){
-
+    tokenStack.push(operand);
   }
   private void performOperation(Operator operator) throws Exception{
-    
-    throw new Exception("MalformedExpressionException");
+    try {
+      int rightOperand = ((Operand) tokenStack.pop()).getValue();
+      int leftOperand = ((Operand) tokenStack.pop()).getValue();
+      Operand operand;
+
+      switch (operator.getOperation()) {
+        case ADDITION:
+          operand = new Operand(leftOperand + rightOperand);
+          break;
+        case SUBTRACTION:
+          operand = new Operand(leftOperand - rightOperand);
+          break;
+        case MULTIPLICATION:
+          operand = new Operand(leftOperand * rightOperand);
+          break;
+        case DIVISION:
+          if (rightOperand == 0)
+            throw new MalformedExpressionException("Cannot divide by 0");
+          operand = new Operand(leftOperand / rightOperand);
+          break;
+        default:
+          throw new MalformedExpressionException("Invalid operation");
+      }
+      pushOperand(operand);
+    }
+    catch (Exception e)
+    {
+      throw new MalformedExpressionException(e.getMessage());
+    }
   }
 }

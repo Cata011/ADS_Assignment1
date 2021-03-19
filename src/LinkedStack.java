@@ -1,3 +1,5 @@
+import CustomExceptions.EmptyStackException;
+
 public class LinkedStack<T> implements Stack<T> {
 
     public LinkedList<T> list;
@@ -18,13 +20,13 @@ public class LinkedStack<T> implements Stack<T> {
     }
 
     @Override
-    public T pop() throws Exception {
+    public T pop() throws EmptyStackException {
         try {
             return list.removeFirst();
         }
         catch (Exception e)
         {
-            throw new Exception("Stack is empty");
+            throw new EmptyStackException("The stack is empty");
         }
     }
 }

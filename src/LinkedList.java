@@ -1,9 +1,9 @@
+import CustomExceptions.EmptyListException;
+
 public class LinkedList<T> implements List<T> {
 
     private Node<T> head;
     private int size;
-
-    //constructor?
 
     @Override
     public boolean isEmpty() {
@@ -24,8 +24,8 @@ public class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public T removeFirst() throws Exception {
-        if(isEmpty()) throw new Exception("List is empty");
+    public T removeFirst() throws EmptyListException {
+        if(isEmpty()) throw new EmptyListException("The list is empty");
 
         T firstNodeData = head.getData();
         head = head.getNext();

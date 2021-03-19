@@ -1,6 +1,11 @@
-public interface List<T>{
+import CustomExceptions.EmptyListException;
+
+public interface List<T> {
     boolean isEmpty();
+
     int size();
+
     void addToFront(T data);
-    T removeFirst() throws Exception;
+
+    T removeFirst() throws EmptyListException;
 }
