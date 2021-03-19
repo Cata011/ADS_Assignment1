@@ -1,11 +1,19 @@
+import CustomExceptions.MalformedExpressionException;
+
 import java.util.ArrayList;
 
 public class Client {
 
-  private CalculatorVisitor calculatorVisitor;
+    private CalculatorVisitor calculatorVisitor;
 
-  public int evaluateExpression(ArrayList<Token> tokenList) throws Exception
-  {
-   return calculatorVisitor.getResult();
-  };
+    public Client(CalculatorVisitor calculatorVisitor) {
+        this.calculatorVisitor = calculatorVisitor;
+    }
+
+    public int evaluateExpression(ArrayList<Token> tokenList) throws MalformedExpressionException {
+        for (Token t : tokenList) {
+            t.accept(calculatorVisitor);
+        }
+        return calculatorVisitor.getResult();
+    }
 }

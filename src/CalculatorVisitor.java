@@ -6,6 +6,10 @@ public class CalculatorVisitor implements Calculator, Visitor
 
   private LinkedStack<Token> tokenStack;
 
+  public CalculatorVisitor() {
+    this.tokenStack = new LinkedStack<>();
+  }
+
   @Override public int getResult() throws MalformedExpressionException
   {
     try{
