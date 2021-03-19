@@ -1,5 +1,6 @@
-import CustomExceptions.EmptyStackException;
-import CustomExceptions.MalformedExpressionException;
+package visitor;
+
+import customExceptions.MalformedExpressionException;
 
 public class CalculatorVisitor implements Calculator, Visitor
 {
@@ -45,16 +46,16 @@ public class CalculatorVisitor implements Calculator, Visitor
       Operand operand;
 
       switch (operator.getOperation()) {
-        case ADDITION:
+        case Operation.ADDITION:
           operand = new Operand(leftOperand + rightOperand);
           break;
-        case SUBTRACTION:
+        case Operation.SUBTRACTION:
           operand = new Operand(leftOperand - rightOperand);
           break;
-        case MULTIPLICATION:
+        case Operation.MULTIPLICATION:
           operand = new Operand(leftOperand * rightOperand);
           break;
-        case DIVISION:
+        case Operation.DIVISION:
           if (rightOperand == 0)
             throw new MalformedExpressionException("Cannot divide by 0");
           operand = new Operand(leftOperand / rightOperand);

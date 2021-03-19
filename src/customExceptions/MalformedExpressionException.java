@@ -1,4 +1,4 @@
-package CustomExceptions;
+package customExceptions;
 
 public class MalformedExpressionException extends Exception{
     public MalformedExpressionException(String message)

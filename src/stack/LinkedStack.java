@@ -1,4 +1,6 @@
-import CustomExceptions.EmptyStackException;
+package stack;
+
+import customExceptions.EmptyStackException;
 
 public class LinkedStack<T> implements Stack<T> {
 

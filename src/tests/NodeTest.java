@@ -1,8 +1,11 @@
-package Tests;
+package tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import stack.Node;
 
-class NodeTest {
+class NodeTest<T> {
+
+    private T data;
+    private Node<T> next;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {

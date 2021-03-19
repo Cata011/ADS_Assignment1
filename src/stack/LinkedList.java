@@ -1,4 +1,6 @@
-import CustomExceptions.EmptyListException;
+package stack;
+
+import customExceptions.EmptyListException;
 
 public class LinkedList<T> implements List<T> {
 

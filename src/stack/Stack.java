@@ -1,4 +1,6 @@
-import CustomExceptions.EmptyStackException;
+package stack;
+
+import customExceptions.EmptyStackException;
 
 public interface Stack<T> {
     boolean isEmpty();

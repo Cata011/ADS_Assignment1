@@ -1,3 +1,7 @@
+package token;
+
+import visitor.CalculatorVisitor;
+
 public class Operand extends Token {
 
     private int value;

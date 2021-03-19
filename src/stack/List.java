@@ -1,4 +1,6 @@
-import CustomExceptions.EmptyListException;
+package stack;
+
+import customExceptions.EmptyListException;
 
 public interface List<T> {
     boolean isEmpty();

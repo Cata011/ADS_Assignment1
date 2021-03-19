@@ -1,8 +1,6 @@
-package Tests;
+package tests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class LinkedStackTest {
+class LinkedListTest {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
@@ -13,10 +11,14 @@ class LinkedStackTest {
     }
 
     @org.junit.jupiter.api.Test
-    void push() {
+    void size() {
     }
 
     @org.junit.jupiter.api.Test
-    void pop() {
+    void addToFront() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void removeFirst() {
     }
 }
