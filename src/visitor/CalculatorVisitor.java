@@ -1,6 +1,11 @@
 package visitor;
 
 import customExceptions.MalformedExpressionException;
+import stack.LinkedStack;
+import token.Operand;
+import token.Operation;
+import token.Operator;
+import token.Token;
 
 public class CalculatorVisitor implements Calculator, Visitor
 {
@@ -46,16 +51,16 @@ public class CalculatorVisitor implements Calculator, Visitor
       Operand operand;
 
       switch (operator.getOperation()) {
-        case Operation.ADDITION:
+        case ADDITION:
           operand = new Operand(leftOperand + rightOperand);
           break;
-        case Operation.SUBTRACTION:
+        case SUBTRACTION:
           operand = new Operand(leftOperand - rightOperand);
           break;
-        case Operation.MULTIPLICATION:
+        case MULTIPLICATION:
           operand = new Operand(leftOperand * rightOperand);
           break;
-        case Operation.DIVISION:
+        case DIVISION:
           if (rightOperand == 0)
             throw new MalformedExpressionException("Cannot divide by 0");
           operand = new Operand(leftOperand / rightOperand);
