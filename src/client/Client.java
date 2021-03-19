@@ -1,3 +1,5 @@
+package client;
+
 import customExceptions.MalformedExpressionException;
 import token.Token;
 import visitor.CalculatorVisitor;
